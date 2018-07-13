@@ -7,13 +7,12 @@ import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 
 public class twuAppApplicationTest {
-    twuAppApplication biblioteca;
     Menu menu;
 
     @Before
     public void setUp() throws Exception {
         BookController.saveBookList();
-        biblioteca = new twuAppApplication();
+        MovieController.saveMovieList();
         menu = new Menu();
     }
 
@@ -76,6 +75,17 @@ public class twuAppApplicationTest {
     public void should_return_bookt_failure_when_input_error_book_id() {
         String result = BookController.returnBookById(8);
         String expected = "That is not a valid book to return.";
+        assertEquals(result, expected);
+    }
+
+    @Test
+    public void should_return_movie_list_when_choose_show_movie_list() {
+        String result = MovieController.getMovieInfoList();
+        String expected = "1 | movie1 | 2018/3/16 | huanglizhen | 10\n" +
+                "2 | movie2 | 2018/3/16 | huanglizhen | 10\n" +
+                "3 | movie3 | 2018/3/16 | huanglizhen | 10\n" +
+                "4 | movie4 | 2018/3/16 | huanglizhen | 10\n" +
+                "5 | movie5 | 2018/3/16 | huanglizhen | 10\n";
         assertEquals(result, expected);
     }
 }
