@@ -1,12 +1,7 @@
 package com.example.twu;
 
-import com.example.twu.entities.Book;
-import com.example.twu.entities.BookList;
-import com.example.twu.entities.Data;
 import com.example.twu.entities.Menu;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 
@@ -20,17 +15,17 @@ public class twuAppApplication {
         while ((menuNumber = scanner.nextInt()) != 4) {
             switch (menuNumber) {
                 case 1:
-                    System.out.println(Data.getBookInfoList());
+                    System.out.println(BookController.getBookInfoList());
                     getMenu();
                     break;
                 case 2:
                     System.out.println("please input checkout book id");
-                    System.out.println(Data.checkoutBookById(scanner.nextInt()));
+                    System.out.println(BookController.checkoutBookById(scanner.nextInt()));
                     getMenu();
                     break;
                 case 3:
                     System.out.println("please input return book id");
-                    System.out.println(Data.returnBookById(scanner.nextInt()));
+                    System.out.println(BookController.returnBookById(scanner.nextInt()));
                     getMenu();
                     break;
                 default:
@@ -44,7 +39,7 @@ public class twuAppApplication {
         Menu menu = new Menu();
         System.out.println(menu.getWelcomeInfo());
         getMenu();
-        Data.saveBookList();
+        BookController.saveBookList();
     }
 
 

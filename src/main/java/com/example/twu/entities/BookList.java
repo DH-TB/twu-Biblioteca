@@ -1,6 +1,8 @@
 package com.example.twu.entities;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class BookList {
@@ -12,5 +14,13 @@ public class BookList {
 
     public void addBook(Book book) {
         this.bookList.add(book);
+    }
+
+    public void addBookList(List<Book> book) {
+        this.bookList.addAll(book);
+    }
+
+    public void checkoutBook(Book book) {
+        this.bookList.remove(book);
     }
 }
