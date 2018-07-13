@@ -63,4 +63,19 @@ public class twuAppApplicationTest {
         assertEquals(result, expected);
     }
 
+    @Test
+    public void should_return_book_success_when_input_right_book_id() {
+        BookController.checkoutBookById(2);
+        String result = BookController.returnBookById(2);
+        String expected = "Thank you for returning the book.";
+        assertEquals(result, expected);
+    }
+
+
+    @Test
+    public void should_return_bookt_failure_when_input_error_book_id() {
+        String result = BookController.returnBookById(8);
+        String expected = "That is not a valid book to return.";
+        assertEquals(result, expected);
+    }
 }
