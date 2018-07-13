@@ -1,14 +1,14 @@
 package com.example.twu.entities;
 
 public class Book {
-    private Long id;
+    private int id;
     private String name;
     private String author;
     private String year;
     private String publication;
 
 
-    public Book(Long id, String name, String author, String year, String publication) {
+    public Book(int id, String name, String author, String year, String publication) {
         this.id = id;
         this.name = name;
         this.author = author;
@@ -16,11 +16,11 @@ public class Book {
         this.publication = publication;
     }
 
-    public Long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
 

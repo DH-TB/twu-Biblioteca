@@ -23,5 +23,5 @@ public class twuAppApplicationTest {
         String expected = "*********** Welcome to Biblioteca! ***********";
         assertEquals(welcomeMessage, expected);
     }
-    
+
 }

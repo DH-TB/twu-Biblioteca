@@ -21,6 +21,8 @@ public class twuAppApplication {
 					getMenu();
 					break;
 				case 2:
+					System.out.println("please input checkout book id");
+					System.out.println(Data.checkoutBookById(scanner.nextInt()));
 					getMenu();
 					break;
 			}
