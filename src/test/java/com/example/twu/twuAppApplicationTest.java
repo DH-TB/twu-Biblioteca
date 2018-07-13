@@ -30,7 +30,9 @@ public class twuAppApplicationTest {
                 "3 return book\n" +
                 "4 show all movie\n" +
                 "5 checkout movie\n" +
-                "6 exit\n" +
+                "6 login\n" +
+                "7 my user info\n" +
+                "8 exit\n" +
                 "***********\n" +
                 "please choose number you want：\n";
         assertEquals(result, expected);

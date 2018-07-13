@@ -10,15 +10,7 @@ public class MovieList {
         return movieList;
     }
 
-    public void addMovie(Movie movie) {
-        this.movieList.add(movie);
-    }
-
     public void addMovieList(List<Movie> movie) {
         this.movieList.addAll(movie);
-    }
-
-    public void checkoutMovie(Movie movie) {
-        this.movieList.remove(movie);
     }
 }
