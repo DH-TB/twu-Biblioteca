@@ -12,7 +12,7 @@ public class twuAppApplication {
 
         int menuNumber;
         init();
-        while ((menuNumber = scanner.nextInt()) != 4) {
+        while ((menuNumber = scanner.nextInt()) != 5) {
             switch (menuNumber) {
                 case 1:
                     System.out.println(BookController.getBookInfoList());
@@ -28,6 +28,10 @@ public class twuAppApplication {
                     System.out.println(BookController.returnBookById(scanner.nextInt()));
                     getMenu();
                     break;
+                case 4:
+                    System.out.println(MovieController.getMovieInfoList());
+                    getMenu();
+                    break;
                 default:
                     System.out.println("Select a valid option!\n");
                     getMenu();
@@ -40,6 +44,7 @@ public class twuAppApplication {
         System.out.println(menu.getWelcomeInfo());
         getMenu();
         BookController.saveBookList();
+        MovieController.saveMovieList();
     }
 
 
