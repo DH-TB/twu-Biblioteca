@@ -25,12 +25,12 @@ public class twuAppApplicationTest {
     public void should_return_menu() {
         String result = menu.getMenu();
         String expected = "\n***********\n" +
-                "1 show all book\n" +
-                "2 checkout book\n" +
-                "3 return book\n" +
-                "4 show all movie\n" +
+                "1 login\n" +
+                "2 show all book\n" +
+                "3 show all movie\n" +
+                "4 checkout book\n" +
                 "5 checkout movie\n" +
-                "6 login\n" +
+                "6 return book\n" +
                 "7 my user info\n" +
                 "8 exit\n" +
                 "***********\n" +

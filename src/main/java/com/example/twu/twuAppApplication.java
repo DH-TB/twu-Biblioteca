@@ -15,21 +15,21 @@ public class twuAppApplication {
         while ((menuNumber = scanner.nextInt()) != 8) {
             switch (menuNumber) {
                 case 1:
-                    System.out.println(BookController.getBookInfoList());
+                    System.out.println("please input user id and password( the format is:xxx-xxxx password)");
+                    System.out.println(UserController.checkUser(scanner.next(),scanner.next()));
                     getMenu();
                     break;
                 case 2:
-                    System.out.println("please input checkout book id");
-                    System.out.println(BookController.checkoutBookById(scanner.nextInt()));
+                    System.out.println(BookController.getBookInfoList());
                     getMenu();
                     break;
                 case 3:
-                    System.out.println("please input return book id");
-                    System.out.println(BookController.returnBookById(scanner.nextInt()));
+                    System.out.println(MovieController.getMovieInfoList());
                     getMenu();
                     break;
                 case 4:
-                    System.out.println(MovieController.getMovieInfoList());
+                    System.out.println("please input checkout book id");
+                    System.out.println(BookController.checkoutBookById(scanner.nextInt()));
                     getMenu();
                     break;
                 case 5:
@@ -38,14 +38,12 @@ public class twuAppApplication {
                     getMenu();
                     break;
                 case 6:
-                    System.out.println("please input user id ( the format is:xxx-xxxx");
-                    UserController.checkUser(scanner.next(),scanner.next());
-
-                    System.out.println();
-
+                    System.out.println("please input return book id");
+                    System.out.println(BookController.returnBookById(scanner.nextInt()));
                     getMenu();
                     break;
                 case 7:
+                    System.out.println(UserController.getMyUserInfo());
                     getMenu();
                     break;
                 default:
