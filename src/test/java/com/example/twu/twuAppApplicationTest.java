@@ -12,6 +12,7 @@ public class twuAppApplicationTest {
 
     @Before
     public void setUp() throws Exception {
+        BookController.saveBookList();
         biblioteca = new twuAppApplication();
         menu = new Menu();
     }
@@ -31,14 +32,13 @@ public class twuAppApplicationTest {
                 "2 checkout book\n" +
                 "3 return book\n" +
                 "4 exit\n" +
-                "***********\n"+
+                "***********\n" +
                 "please choose number you want：\n";
         assertEquals(result, expected);
     }
 
     @Test
-    public void should_return_book_list_when_input_1() {
-        BookController.saveBookList();
+    public void should_return_book_list_when_choose_show_book_list() {
         String result = BookController.getBookInfoList();
         String expected = "1 | Java | TWU | 2018/3/16 | 人民邮电出版社\n" +
                 "2 | TDD | TWU | 2018/3/16 | 人民邮电出版社\n" +
@@ -48,5 +48,19 @@ public class twuAppApplicationTest {
         assertEquals(result, expected);
     }
 
+    @Test
+    public void should_return_checkout_success_when_input_right_book_id() {
+        String result = BookController.checkoutBookById(1);
+        String expected = "Thank you! Enjoy the book.";
+        assertEquals(result, expected);
+    }
+
+
+    @Test
+    public void should_return_checkout_failure_when_input_error_book_id() {
+        String result = BookController.checkoutBookById(10);
+        String expected = "That book is not available.";
+        assertEquals(result, expected);
+    }
 
 }
