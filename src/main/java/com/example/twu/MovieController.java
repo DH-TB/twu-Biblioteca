@@ -1,10 +1,13 @@
 package com.example.twu;
 
+import com.example.twu.entities.Book;
+import com.example.twu.entities.Checkout;
 import com.example.twu.entities.Movie;
 import com.example.twu.entities.MovieList;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 public class MovieController {
@@ -35,4 +38,11 @@ public class MovieController {
         )).collect(Collectors.joining());
     }
 
+    public static String checkoutMovieById(int id) {
+        Movie movie = movieList.getMovieList().stream().filter(b -> b.getId() == id).findFirst().orElse(null);
+        if (Objects.nonNull(movie)) {
+            return "Thank you! Enjoy the movie.";
+        }
+        return "That movie is not available.";
+    }
 }

@@ -12,7 +12,7 @@ public class twuAppApplication {
 
         int menuNumber;
         init();
-        while ((menuNumber = scanner.nextInt()) != 5) {
+        while ((menuNumber = scanner.nextInt()) != 6) {
             switch (menuNumber) {
                 case 1:
                     System.out.println(BookController.getBookInfoList());
@@ -30,6 +30,11 @@ public class twuAppApplication {
                     break;
                 case 4:
                     System.out.println(MovieController.getMovieInfoList());
+                    getMenu();
+                    break;
+                case 5:
+                    System.out.println("please input checkout movie id");
+                    System.out.println(MovieController.checkoutMovieById(scanner.nextInt()));
                     getMenu();
                     break;
                 default:
