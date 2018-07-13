@@ -2,20 +2,18 @@ package com.example.twu.entities;
 
 public class Menu {
     public static final String MENU = "\n***********\n" +
-            "1 show book list\n" +
-            "2 show movie list\n" +
-            "3 checkout book\n" +
-            "4 return book\n" +
-            "5 login\n" +
-            "6 exit\n" +
-            "7 my profile" +
-            "***********\n";
+            "1 show all book\n" +
+            "2 checkout book\n" +
+            "3 return book\n" +
+            "4 exit\n" +
+            "***********\n"+
+            "please choose number you want：\n";
 
 
     public static final String WELCOME_INFO = "*********** Welcome to Biblioteca! ***********";
 
-    public void getMenu(){
-        System.out.println(MENU);
+    public String getMenu(){
+        return MENU;
     }
 
     public String getWelcomeInfo(){
