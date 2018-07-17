@@ -1,4 +1,4 @@
-package com.example.twu;
+package com.example.twu.controllers;
 
 import com.example.twu.entities.Book;
 import com.example.twu.entities.BookList;

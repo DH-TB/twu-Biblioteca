@@ -1,4 +1,4 @@
-package com.example.twu;
+package com.example.twu.controllers;
 
 import com.example.twu.entities.User;
 import com.example.twu.entities.UserList;
@@ -38,6 +38,9 @@ public class UserController {
 
     public static String getMyUserInfo() {
         User user = userList.getLoggedUser();
+        if(Objects.isNull(user)){
+            return "please login first";
+        }
 
         String template = "%1$s | %2$s | %3$s | %4$s | %5$s | %6$s\n";
 

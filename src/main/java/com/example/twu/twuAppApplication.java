@@ -1,9 +1,11 @@
 package com.example.twu;
 
+import com.example.twu.controllers.BookController;
+import com.example.twu.controllers.MovieController;
+import com.example.twu.controllers.UserController;
 import com.example.twu.entities.Menu;
 
 import java.util.Scanner;
-
 
 public class twuAppApplication {
 

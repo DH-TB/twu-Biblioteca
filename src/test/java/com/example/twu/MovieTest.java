@@ -1,5 +1,6 @@
 package com.example.twu;
 
+import com.example.twu.controllers.MovieController;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
@@ -8,7 +9,6 @@ public class MovieTest {
 
     @Test
     public void should_return_movie_list_when_choose_show_movie_list() {
-        MovieController.saveMovieList();
         String result = MovieController.getMovieInfoList();
         String expected = "1 | movie1 | 2018/3/16 | huanglizhen | 10\n" +
                 "2 | movie2 | 2018/3/16 | huanglizhen | 10\n" +
