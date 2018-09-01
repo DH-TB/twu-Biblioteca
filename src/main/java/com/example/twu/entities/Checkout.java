@@ -1,28 +1,20 @@
 package com.example.twu.entities;
 
 public class Checkout {
-    private int userId;
+    private String userId;
     private int bookId;
 
 
-    public Checkout(int userId, int bookId) {
+    public Checkout(String userId, int bookId) {
         this.userId = userId;
         this.bookId = bookId;
     }
 
-    public int getUserId() {
+    public String getUserId() {
         return userId;
-    }
-
-    public void setUserId(int userId) {
-        this.userId = userId;
     }
 
     public int getBookId() {
         return bookId;
-    }
-
-    public void setBookId(int bookId) {
-        this.bookId = bookId;
     }
 }

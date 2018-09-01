@@ -1,11 +1,11 @@
 package com.example.twu;
 
+import java.util.Scanner;
 import com.example.twu.controllers.BookController;
 import com.example.twu.controllers.MovieController;
 import com.example.twu.controllers.UserController;
 import com.example.twu.entities.Menu;
-
-import java.util.Scanner;
+import static com.example.twu.controllers.CommonController.verifyIsLogin;
 
 public class twuAppApplication {
 
@@ -30,8 +30,13 @@ public class twuAppApplication {
                     getMenu();
                     break;
                 case 4:
-                    System.out.println("please input checkout book id");
-                    System.out.println(BookController.checkoutBookById(scanner.nextInt()));
+                    if(!verifyIsLogin()){
+                        System.out.println("please login first");
+                    }
+                    else {
+                        System.out.println("please input checkout book id");
+                        System.out.println(BookController.checkoutBookById(scanner.nextInt()));
+                    }
                     getMenu();
                     break;
                 case 5:
@@ -55,7 +60,7 @@ public class twuAppApplication {
         }
     }
 
-    public static void init() {
+    private static void init() {
         BookController.saveBookList();
         MovieController.saveMovieList();
         UserController.saveUserList();
@@ -66,8 +71,10 @@ public class twuAppApplication {
     }
 
 
-    public static void getMenu() {
+    private static void getMenu() {
         Menu menu = new Menu();
         System.out.println(menu.getMenu());
     }
+
+
 }

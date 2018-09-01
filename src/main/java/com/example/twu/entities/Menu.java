@@ -1,7 +1,7 @@
 package com.example.twu.entities;
 
 public class Menu {
-    public static final String MENU = "\n***********\n" +
+    private static final String MENU = "\n***********\n" +
             "1 login\n" +
             "2 show all book\n" +
             "3 show all movie\n" +
@@ -14,7 +14,7 @@ public class Menu {
             "please choose number you want：\n";
 
 
-    public static final String WELCOME_INFO = "*********** Welcome to Biblioteca! ***********";
+    private static final String WELCOME_INFO = "*********** Welcome to Biblioteca! ***********";
 
     public String getMenu(){
         return MENU;
