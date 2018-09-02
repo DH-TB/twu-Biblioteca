@@ -1,16 +1,16 @@
 package com.example.twu;
 
-import java.util.HashMap;
-import java.util.Objects;
-import java.util.Scanner;
-
 import com.example.twu.controllers.BookController;
 import com.example.twu.controllers.MovieController;
 import com.example.twu.controllers.UserController;
 import com.example.twu.entities.Menu;
 import com.example.twu.print.*;
 
-public class twuAppApplication {
+import java.util.HashMap;
+import java.util.Objects;
+import java.util.Scanner;
+
+public class Application {
 
     public static void main(String[] args) {
 
@@ -46,7 +46,7 @@ public class twuAppApplication {
         UserController.saveUserList();
 
         System.out.println(new Menu().getWelcomeInfo());
-        getMenu();
+        Application.getMenu();
     }
 
 
