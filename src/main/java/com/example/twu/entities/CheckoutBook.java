@@ -1,11 +1,11 @@
 package com.example.twu.entities;
 
-public class Checkout {
+public class CheckoutBook {
     private String userId;
     private int bookId;
 
 
-    public Checkout(String userId, int bookId) {
+    public CheckoutBook(String userId, int bookId) {
         this.userId = userId;
         this.bookId = bookId;
     }

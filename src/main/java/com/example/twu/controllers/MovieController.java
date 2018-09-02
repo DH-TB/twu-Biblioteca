@@ -1,6 +1,8 @@
 package com.example.twu.controllers;
 
 import com.example.twu.DataList;
+import com.example.twu.entities.CheckoutBook;
+import com.example.twu.entities.CheckoutMovie;
 import com.example.twu.entities.Movie;
 
 import java.util.Arrays;
@@ -38,6 +40,8 @@ public class MovieController {
         Movie movie = DataList.getMovieList().stream().filter(b -> b.getId() == id).findFirst().orElse(null);
 
         if (Objects.nonNull(movie)) {
+            DataList.addCheckoutMovieList(new CheckoutMovie(DataList.getLoggedUser().getId(), id));
+            DataList.checkoutMovie(movie);
             return "Thank you! Enjoy the movie.";
         }
         return "That movie is not available.";

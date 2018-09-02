@@ -1,16 +1,15 @@
 package com.example.twu;
 
-import com.example.twu.entities.Book;
-import com.example.twu.entities.Checkout;
-import com.example.twu.entities.Movie;
-import com.example.twu.entities.User;
+import com.example.twu.entities.*;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class DataList {
     private static List<Book> bookList = new ArrayList<>();
-    private static List<Checkout> checkoutList = new ArrayList<>();
+    private static List<CheckoutBook> checkoutBookList = new ArrayList<>();
+    private static List<CheckoutMovie> checkoutMovieList = new ArrayList<>();
+
     private static List<Movie> movieList = new ArrayList<>();
     private static List<User> userList = new ArrayList<>();
     private static User loggedUser;
@@ -47,12 +46,12 @@ public class DataList {
         bookList.remove(book);
     }
 
-    public static List<Checkout> getCheckoutList() {
-        return checkoutList;
+    public static List<CheckoutBook> getCheckoutBookList() {
+        return checkoutBookList;
     }
 
-    public static void addCheckoutList(Checkout list) {
-        checkoutList.add(list);
+    public static void addCheckoutBookList(CheckoutBook list) {
+        checkoutBookList.add(list);
     }
 
     public static List<Movie> getMovieList() {
@@ -62,4 +61,17 @@ public class DataList {
     public static void addMovieList(List<Movie> movie) {
         movieList.addAll(movie);
     }
+
+    public static List<CheckoutMovie> getCheckoutMovieList() {
+        return checkoutMovieList;
+    }
+
+    public static void addCheckoutMovieList(CheckoutMovie list) {
+        checkoutMovieList.add(list);
+    }
+
+    public static void checkoutMovie(Movie movie) {
+        movieList.remove(movie);
+    }
+
 }

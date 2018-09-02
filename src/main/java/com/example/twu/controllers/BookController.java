@@ -42,7 +42,7 @@ public class BookController {
                 .orElse(null);
 
         if (Objects.nonNull(book)) {
-            DataList.addCheckoutList(new Checkout(DataList.getLoggedUser().getId(), id));
+            DataList.addCheckoutBookList(new CheckoutBook(DataList.getLoggedUser().getId(), id));
             DataList.checkoutBook(book);
             return "Thank you! Enjoy the book.";
         }
@@ -50,7 +50,7 @@ public class BookController {
     }
 
     public static String returnBookById(int id) {
-        Checkout checkout = DataList.getCheckoutList().stream()
+        CheckoutBook checkout = DataList.getCheckoutBookList().stream()
                 .filter(c -> c.getBookId() == id && c.getUserId().equals(DataList.getLoggedUser().getId()))
                 .findFirst()
                 .orElse(null);

@@ -1,11 +1,17 @@
 package com.example.twu;
 
 import com.example.twu.controllers.MovieController;
+import com.example.twu.entities.User;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class MovieTest {
+    @BeforeEach
+    void setup() {
+        DataList.setLoggedUser(new User("111-1111", "user1", "pass1", "929659475@qq.com", "15091671302", "xi'an"));
+    }
 
     @Test
     void should_return_movie_list_when_choose_show_movie_list() {
