@@ -8,6 +8,6 @@ public class CaseSeven implements Base {
 
     @Override
     public void print(int input, Scanner scanner) {
-        System.out.println(UserController.getMyUserInfo());
+        System.out.println(new UserController().getMyUserInfo());
     }
 }

@@ -1,20 +1,23 @@
 package com.example.twu.print;
 
+import com.example.twu.DataList;
 import com.example.twu.controllers.BookController;
+import com.example.twu.entities.User;
 
+import java.util.Objects;
 import java.util.Scanner;
-
-import static com.example.twu.controllers.CommonController.verifyIsLogin;
 
 public class CaseFour implements Base {
 
     @Override
     public void print(int input, Scanner scanner) {
-        if (!verifyIsLogin()) {
+        User user = DataList.getLoggedUser();
+        if (Objects.isNull(user)) {
             System.out.println("please login first");
+
         } else {
             System.out.println("please input checkout book id");
-            System.out.println(BookController.checkoutBookById(scanner.nextInt()));
+            System.out.println(new BookController().checkoutBookById(scanner.nextInt()));
         }
     }
 }

@@ -1,8 +1,5 @@
 package com.example.twu;
 
-import com.example.twu.controllers.BookController;
-import com.example.twu.controllers.MovieController;
-import com.example.twu.controllers.UserController;
 import com.example.twu.entities.Menu;
 import com.example.twu.print.*;
 
@@ -13,6 +10,8 @@ import java.util.Scanner;
 public class Application {
 
     public static void main(String[] args) {
+        Application application = new Application();
+        Scanner scanner = new Scanner(System.in);
 
         HashMap<Integer, Base> map = new HashMap<>();
         map.put(1, new CaseOne());
@@ -23,10 +22,10 @@ public class Application {
         map.put(6, new CaseSix());
         map.put(7, new CaseSeven());
 
-        Scanner scanner = new Scanner(System.in);
 
         int menu;
-        initDataList();
+
+        application.initDataList();
 
         while ((menu = scanner.nextInt()) != 8) {
             Base base = map.get(menu);
@@ -36,21 +35,17 @@ public class Application {
             } else {
                 base.print(menu, scanner);
             }
-            getMenu();
+            application.getMenu();
         }
     }
 
-    private static void initDataList() {
-        BookController.saveBookList();
-        MovieController.saveMovieList();
-        UserController.saveUserList();
-
+    private void initDataList() {
         System.out.println(new Menu().getWelcomeInfo());
-        Application.getMenu();
+        getMenu();
     }
 
 
-    private static void getMenu() {
+    private void getMenu() {
         System.out.println(new Menu().getMenu());
     }
 }

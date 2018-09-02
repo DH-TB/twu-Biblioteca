@@ -8,6 +8,6 @@ public class CaseTwo implements Base {
 
     @Override
     public void print(int input, Scanner scanner) {
-        System.out.println(BookController.getBookInfoList());
+        System.out.println(new BookController().getBookInfoList());
     }
 }

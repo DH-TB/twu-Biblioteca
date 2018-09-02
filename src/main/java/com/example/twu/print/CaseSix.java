@@ -9,6 +9,6 @@ public class CaseSix implements Base {
     @Override
     public void print(int input, Scanner scanner) {
         System.out.println("please input return book id");
-        System.out.println(BookController.returnBookById(scanner.nextInt()));
+        System.out.println(new BookController().returnBookById(scanner.nextInt()));
     }
 }

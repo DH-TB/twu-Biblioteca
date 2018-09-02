@@ -7,11 +7,10 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 
-import static com.example.twu.controllers.CommonController.verifyIsLogin;
-
 public class UserController {
+    private DataList dataList = new DataList();
 
-    private static List<User> initUser() {
+    public static List<User> initUser() {
         return Arrays.asList(
                 new User("111-1111", "user1", "pass1", "929659475@qq.com", "15091671302", "xi'an"),
                 new User("222-2222", "user2", "pass2", "929659475@qq.com", "15091671302", "xi'an"),
@@ -21,18 +20,16 @@ public class UserController {
         );
     }
 
-    public static void saveUserList() {
-        DataList.addUserList(initUser());
-    }
 
-    public static String checkUserAndLogin(String id, String password) {
-        User user = DataList.getUserList()
+    public String checkUserAndLogin(String id, String password) {
+        User user = dataList.getUserList()
                 .stream()
                 .filter(u -> u.getId().equals(id) && u.getPassword().equals(password))
                 .findFirst()
                 .orElse(null);
         if (Objects.nonNull(user)) {
-            DataList.setLoggedUser(user);
+            new DataList().setLoggedUser(user);
+            dataList.setLoggedUser(user);
 
             return "login success";
         }
@@ -40,13 +37,13 @@ public class UserController {
         return "id or password is error";
     }
 
-    public static String getMyUserInfo() {
-        if(!verifyIsLogin()){
+    public String getMyUserInfo() {
+        User user = dataList.getLoggedUser();
+        if (Objects.isNull(user)) {
             return "please login first";
         }
 
         String template = "%1$s | %2$s | %3$s | %4$s | %5$s | %6$s\n";
-        User user = DataList.getLoggedUser();
 
         return String.format(template,
                 user.getId(),
