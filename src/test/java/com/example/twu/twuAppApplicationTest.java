@@ -1,28 +1,29 @@
 package com.example.twu;
 
 import com.example.twu.entities.Menu;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class twuAppApplicationTest {
-    Menu menu;
 
-    @Before
-    public void setUp() throws Exception {
+class twuAppApplicationTest {
+    private Menu menu;
+
+    @BeforeEach
+    void setUp() {
         menu = new Menu();
     }
 
     @Test
-    public void should_return_welcome_info() {
+    void should_return_welcome_info() {
         String result = menu.getWelcomeInfo();
         String expected = "*********** Welcome to Biblioteca! ***********";
         assertEquals(result, expected);
     }
 
     @Test
-    public void should_return_menu() {
+    void should_return_menu() {
         String result = menu.getMenu();
         String expected = "\n***********\n" +
                 "1 login\n" +

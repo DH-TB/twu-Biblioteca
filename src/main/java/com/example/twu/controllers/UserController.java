@@ -25,7 +25,7 @@ public class UserController {
         DataList.addUserList(initUser());
     }
 
-    public static String checkUser(String id, String password) {
+    public static String checkUserAndLogin(String id, String password) {
         User user = DataList.getUserList()
                 .stream()
                 .filter(u -> u.getId().equals(id) && u.getPassword().equals(password))

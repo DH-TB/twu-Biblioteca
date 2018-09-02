@@ -18,7 +18,7 @@ public class twuAppApplication {
             switch (menuNumber) {
                 case 1:
                     System.out.println("please input user id and password( the format is:xxx-xxxx password)");
-                    System.out.println(UserController.checkUser(scanner.next(),scanner.next()));
+                    System.out.println(UserController.checkUserAndLogin(scanner.next(),scanner.next()));
                     getMenu();
                     break;
                 case 2:
