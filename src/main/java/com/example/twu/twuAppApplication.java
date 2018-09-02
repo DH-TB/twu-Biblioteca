@@ -1,80 +1,56 @@
 package com.example.twu;
 
+import java.util.HashMap;
+import java.util.Objects;
 import java.util.Scanner;
+
 import com.example.twu.controllers.BookController;
 import com.example.twu.controllers.MovieController;
 import com.example.twu.controllers.UserController;
 import com.example.twu.entities.Menu;
-import static com.example.twu.controllers.CommonController.verifyIsLogin;
+import com.example.twu.print.*;
 
 public class twuAppApplication {
 
     public static void main(String[] args) {
+
+        HashMap<Integer, Base> map = new HashMap<>();
+        map.put(1, new CaseOne());
+        map.put(2, new CaseTwo());
+        map.put(3, new CaseThree());
+        map.put(4, new CaseFour());
+        map.put(5, new CaseFive());
+        map.put(6, new CaseSix());
+        map.put(7, new CaseSeven());
+
         Scanner scanner = new Scanner(System.in);
 
-        int menuNumber;
-        init();
-        while ((menuNumber = scanner.nextInt()) != 8) {
-            switch (menuNumber) {
-                case 1:
-                    System.out.println("please input user id and password( the format is:xxx-xxxx password)");
-                    System.out.println(UserController.checkUserAndLogin(scanner.next(),scanner.next()));
-                    getMenu();
-                    break;
-                case 2:
-                    System.out.println(BookController.getBookInfoList());
-                    getMenu();
-                    break;
-                case 3:
-                    System.out.println(MovieController.getMovieInfoList());
-                    getMenu();
-                    break;
-                case 4:
-                    if(!verifyIsLogin()){
-                        System.out.println("please login first");
-                    }
-                    else {
-                        System.out.println("please input checkout book id");
-                        System.out.println(BookController.checkoutBookById(scanner.nextInt()));
-                    }
-                    getMenu();
-                    break;
-                case 5:
-                    System.out.println("please input checkout movie id");
-                    System.out.println(MovieController.checkoutMovieById(scanner.nextInt()));
-                    getMenu();
-                    break;
-                case 6:
-                    System.out.println("please input return book id");
-                    System.out.println(BookController.returnBookById(scanner.nextInt()));
-                    getMenu();
-                    break;
-                case 7:
-                    System.out.println(UserController.getMyUserInfo());
-                    getMenu();
-                    break;
-                default:
-                    System.out.println("Select a valid option!\n");
-                    getMenu();
+        int menu;
+        initDataList();
+
+        while ((menu = scanner.nextInt()) != 8) {
+            Base base = map.get(menu);
+
+            if (Objects.isNull(base)) {
+                System.out.println("Select a valid option!");
+            } else {
+                base.print(menu, scanner);
             }
+            getMenu();
         }
     }
 
-    private static void init() {
+    private static void initDataList() {
         BookController.saveBookList();
         MovieController.saveMovieList();
         UserController.saveUserList();
 
-        Menu menu = new Menu();
-        System.out.println(menu.getWelcomeInfo());
+        System.out.println(new Menu().getWelcomeInfo());
         getMenu();
     }
 
 
     private static void getMenu() {
-        Menu menu = new Menu();
-        System.out.println(menu.getMenu());
+        System.out.println(new Menu().getMenu());
     }
-
-
 }
