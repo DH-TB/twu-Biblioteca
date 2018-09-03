@@ -5,11 +5,11 @@ import com.example.twu.entities.User;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import static com.example.twu.Application.dataList;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class BookTest {
 
-    private DataList dataList = new DataList();
     private BookController bookController;
 
     @BeforeEach

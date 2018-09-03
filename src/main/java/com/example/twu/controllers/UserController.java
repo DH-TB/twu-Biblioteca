@@ -7,9 +7,9 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 
-public class UserController {
-    private DataList dataList = new DataList();
+import static com.example.twu.Application.dataList;
 
+public class UserController {
     public static List<User> initUser() {
         return Arrays.asList(
                 new User("111-1111", "user1", "pass1", "929659475@qq.com", "15091671302", "xi'an"),
@@ -29,8 +29,9 @@ public class UserController {
                 .orElse(null);
         if (Objects.nonNull(user)) {
             new DataList().setLoggedUser(user);
-            dataList.setLoggedUser(user);
+//            dataList.setLoggedUser(user);
 
+            dataList.setLoggedUser(user);
             return "login success";
         }
 

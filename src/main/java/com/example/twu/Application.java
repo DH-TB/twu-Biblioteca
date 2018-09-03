@@ -9,8 +9,11 @@ import java.util.Scanner;
 
 public class Application {
 
+    public static DataList dataList = new DataList();
+
     public static void main(String[] args) {
         Application application = new Application();
+
         Scanner scanner = new Scanner(System.in);
 
         HashMap<Integer, Base> map = new HashMap<>();

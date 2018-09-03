@@ -1,5 +1,6 @@
 package com.example.twu.controllers;
 
+import com.example.twu.Application;
 import com.example.twu.DataList;
 import com.example.twu.entities.*;
 
@@ -8,8 +9,9 @@ import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
+import static com.example.twu.Application.dataList;
+
 public class BookController {
-    private DataList dataList = new DataList();
 
     public static List<Book> initBook() {
         ArrayList<Book> bookList = new ArrayList<>();
@@ -23,7 +25,7 @@ public class BookController {
 
     public String getBookInfoList() {
         String template = "%1$d | %2$s | %3$s | %4$s | %5$s\n";
-        return DataList.getBookList().stream().map(book -> String.format(template,
+        return dataList.getBookList().stream().map(book -> String.format(template,
                 book.getId(),
                 book.getName(),
                 book.getAuthor(),
@@ -33,13 +35,13 @@ public class BookController {
 
 
     public String checkoutBookById(int id) {
-        Book book = DataList.getBookList().stream()
+        Book book = dataList.getBookList().stream()
                 .filter(b -> b.getId() == id)
                 .findFirst()
                 .orElse(null);
 
         if (Objects.nonNull(book)) {
-            dataList.addCheckoutBookList(new CheckoutBook(DataList.getLoggedUser().getId(), id));
+            dataList.addCheckoutBookList(new CheckoutBook(dataList.getLoggedUser().getId(), id));
             dataList.checkoutBook(book);
             return "Thank you! Enjoy the book.";
         }
@@ -47,8 +49,8 @@ public class BookController {
     }
 
     public String returnBookById(int id) {
-        CheckoutBook checkout = DataList.getCheckoutBookList().stream()
-                .filter(c -> c.getBookId() == id && c.getUserId().equals(DataList.getLoggedUser().getId()))
+        CheckoutBook checkout = dataList.getCheckoutBookList().stream()
+                .filter(c -> c.getBookId() == id && c.getUserId().equals(dataList.getLoggedUser().getId()))
                 .findFirst()
                 .orElse(null);
 

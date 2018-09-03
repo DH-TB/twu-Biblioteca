@@ -5,10 +5,10 @@ import com.example.twu.entities.User;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import static com.example.twu.Application.dataList;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class MovieTest {
-    private DataList dataList = new DataList();
 
     @BeforeEach
     void setup() {
