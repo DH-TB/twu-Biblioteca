@@ -1,21 +1,24 @@
-package com.example.twu;
+package com.example.twu.store;
 
 import com.example.twu.entities.*;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.example.twu.controllers.BookController.initBook;
-import static com.example.twu.controllers.MovieController.initMovie;
-import static com.example.twu.controllers.UserController.initUser;
-
 public class DataList {
-    private List<Book> bookList = initBook();
-    private List<Movie> movieList = initMovie();
-    private List<User> userList = initUser();
-
+    private List<Book> bookList;
+    private List<Movie> movieList;
+    private List<User> userList;
     private List<CheckoutBook> checkoutBookList = new ArrayList<>();
     private List<CheckoutMovie> checkoutMovieList = new ArrayList<>();
+
+    public DataList() {
+        InitData initData = new InitData();
+        this.bookList = initData.bookList();
+        this.movieList = initData.movieList();
+        this.userList = initData.userList();
+    }
+
 
     private User loggedUser;
 
@@ -35,12 +38,12 @@ public class DataList {
         return checkoutBookList;
     }
 
-    public void setLoggedUser(User user) {
-        loggedUser = user;
-    }
-
     public List<User> getUserList() {
         return userList;
+    }
+
+    public void setLoggedUser(User user) {
+        loggedUser = user;
     }
 
     public void addBook(Book book) {

@@ -1,27 +1,14 @@
 package com.example.twu.controllers;
 
-import com.example.twu.Application;
-import com.example.twu.DataList;
 import com.example.twu.entities.*;
+import com.example.twu.store.InitData;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
 import static com.example.twu.Application.dataList;
 
 public class BookController {
-
-    public static List<Book> initBook() {
-        ArrayList<Book> bookList = new ArrayList<>();
-        bookList.add(new Book(1, "Java", "TWU", "2018/3/16", "人民邮电出版社"));
-        bookList.add(new Book(2, "TDD", "TWU", "2018/3/16", "人民邮电出版社"));
-        bookList.add(new Book(3, "Refactor", "TWU", "2018/3/16", "人民邮电出版社"));
-        bookList.add(new Book(4, "Pair Programing", "TWU", "2018/3/16", "人民邮电出版社"));
-        bookList.add(new Book(5, "Code Small", "TWU", "2018/3/16", "人民邮电出版社"));
-        return bookList;
-    }
 
     public String getBookInfoList() {
         String template = "%1$d | %2$s | %3$s | %4$s | %5$s\n";
@@ -55,7 +42,9 @@ public class BookController {
                 .orElse(null);
 
         if (Objects.nonNull(checkout)) {
-            Book book = initBook().stream().filter(b -> b.getId() == id).findFirst().orElse(null);
+            InitData initData = new InitData();
+
+            Book book = initData.bookList().stream().filter(b -> b.getId() == id).findFirst().orElse(null);
             if (Objects.nonNull(book)) {
                 dataList.addBook(book);
                 return "Thank you for returning the book.";

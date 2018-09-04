@@ -3,24 +3,12 @@ package com.example.twu.controllers;
 import com.example.twu.entities.CheckoutMovie;
 import com.example.twu.entities.Movie;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
 import static com.example.twu.Application.dataList;
 
 public class MovieController {
-
-    public static List<Movie> initMovie() {
-        ArrayList<Movie> movieList = new ArrayList<>();
-        movieList.add(new Movie(1, "movie1", "2018/3/16", "huanglizhen", 10));
-        movieList.add(new Movie(2, "movie2", "2018/3/16", "huanglizhen", 10));
-        movieList.add(new Movie(3, "movie3", "2018/3/16", "huanglizhen", 10));
-        movieList.add(new Movie(4, "movie4", "2018/3/16", "huanglizhen", 10));
-        movieList.add(new Movie(5, "movie5", "2018/3/16", "huanglizhen", 10));
-        return movieList;
-    }
 
     public String getMovieInfoList() {
         String template = "%1$d | %2$s | %3$s | %4$s | %5$d\n";

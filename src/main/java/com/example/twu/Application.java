@@ -2,6 +2,7 @@ package com.example.twu;
 
 import com.example.twu.entities.Menu;
 import com.example.twu.print.*;
+import com.example.twu.store.DataList;
 
 import java.util.HashMap;
 import java.util.Objects;
@@ -25,10 +26,10 @@ public class Application {
         map.put(6, new CaseSix());
         map.put(7, new CaseSeven());
 
-
         int menu;
 
-        application.initDataList();
+        application.getWelcomeInfo();
+        application.getMenu();
 
         while ((menu = scanner.nextInt()) != 8) {
             Base base = map.get(menu);
@@ -38,13 +39,13 @@ public class Application {
             } else {
                 base.print(menu, scanner);
             }
+
             application.getMenu();
         }
     }
 
-    private void initDataList() {
+    private void getWelcomeInfo() {
         System.out.println(new Menu().getWelcomeInfo());
-        getMenu();
     }
 
 
