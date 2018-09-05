@@ -15,29 +15,27 @@ public class Application {
     public static DataList dataList = new DataList();
 
     public static void main(String[] args) {
-        Application application = new Application();
 
         Scanner scanner = new Scanner(System.in);
 
-        HashMap<Integer, Base> map = application.getInputCase();
-
-        int menu = 0;
-
+        Application application = new Application();
         application.getWelcomeInfo();
         application.getMenu();
+        HashMap<Integer, Base> map = application.getInputCaseMap();
 
+        int menu;
         try {
             while ((menu = scanner.nextInt()) != Option.EXIT.getValue()) {
 
-                notHaveChoice(application, scanner, map, menu);
+                judgeOptionValid(application, scanner, map, menu);
             }
         } catch (InputMismatchException ex) {
-            System.out.println("-----------not legal-----------");
+            System.out.println("------- input a illegal character, please restart application --------");
         }
     }
 
 
-    private static void notHaveChoice(Application application, Scanner scanner, HashMap<Integer, Base> map, int menu) {
+    private static void judgeOptionValid(Application application, Scanner scanner, HashMap<Integer, Base> map, int menu) {
         Base base = map.get(menu);
 
         if (Objects.isNull(base)) {
@@ -49,7 +47,7 @@ public class Application {
         application.getMenu();
     }
 
-    private HashMap<Integer, Base> getInputCase() {
+    private HashMap<Integer, Base> getInputCaseMap() {
         HashMap<Integer, Base> map = new HashMap<>();
 
         map.put(Option.LOGIN.getValue(), new LoginCase());
