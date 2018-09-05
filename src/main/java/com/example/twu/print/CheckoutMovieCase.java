@@ -1,7 +1,7 @@
 package com.example.twu.print;
 
 import com.example.twu.Application;
-import com.example.twu.controllers.MovieController;
+import com.example.twu.actions.CheckoutMovieAction;
 import com.example.twu.entities.User;
 
 import java.util.Objects;
@@ -16,7 +16,7 @@ public class CheckoutMovieCase implements Base {
             System.out.println("please login first");
         } else {
             System.out.println("please input checkout movie id");
-            System.out.println(new MovieController().checkoutMovieById(scanner.nextInt()));
+            System.out.println(new CheckoutMovieAction().checkoutMovieById(scanner.nextInt()));
         }
     }
 }

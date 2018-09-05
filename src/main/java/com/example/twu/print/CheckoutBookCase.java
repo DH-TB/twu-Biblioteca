@@ -1,7 +1,7 @@
 package com.example.twu.print;
 
 import com.example.twu.Application;
-import com.example.twu.controllers.BookController;
+import com.example.twu.actions.CheckoutBookAction;
 import com.example.twu.entities.User;
 
 import java.util.Objects;
@@ -17,7 +17,7 @@ public class CheckoutBookCase implements Base {
 
         } else {
             System.out.println("please input checkout book id");
-            System.out.println(new BookController().checkoutBookById(scanner.nextInt()));
+            System.out.println(new CheckoutBookAction().checkoutBookById(scanner.nextInt()));
         }
     }
 }
