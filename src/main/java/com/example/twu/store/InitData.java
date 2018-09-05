@@ -9,6 +9,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class InitData {
+
     List<User> userList() {
         return Arrays.asList(
                 new User("111-1111", "user1", "pass1", "929659475@qq.com", "15091671302", "xi'an"),

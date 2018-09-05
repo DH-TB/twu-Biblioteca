@@ -8,6 +8,7 @@ import java.util.Objects;
 import static com.example.twu.Application.dataList;
 
 public class CheckoutMovieAction {
+
     public String checkoutMovieById(int id) {
         Movie movie = dataList.getMovieList().stream().filter(b -> b.getId() == id).findFirst().orElse(null);
 

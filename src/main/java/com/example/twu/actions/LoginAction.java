@@ -7,6 +7,7 @@ import java.util.Objects;
 import static com.example.twu.Application.dataList;
 
 public class LoginAction {
+
     public String checkUserAndLogin(String id, String password) {
         User user = dataList.getUserList()
                 .stream()

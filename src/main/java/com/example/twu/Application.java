@@ -19,6 +19,37 @@ public class Application {
 
         Scanner scanner = new Scanner(System.in);
 
+        HashMap<Integer, Base> map = application.getInputCase();
+
+        int menu = 0;
+
+        application.getWelcomeInfo();
+        application.getMenu();
+
+        try {
+            while ((menu = scanner.nextInt()) != Option.EXIT.getValue()) {
+
+                notHaveChoice(application, scanner, map, menu);
+            }
+        } catch (InputMismatchException ex) {
+            System.out.println("-----------not legal-----------");
+        }
+    }
+
+
+    private static void notHaveChoice(Application application, Scanner scanner, HashMap<Integer, Base> map, int menu) {
+        Base base = map.get(menu);
+
+        if (Objects.isNull(base)) {
+            System.out.println("Select a valid option!");
+        } else {
+            base.print(menu, scanner);
+        }
+
+        application.getMenu();
+    }
+
+    private HashMap<Integer, Base> getInputCase() {
         HashMap<Integer, Base> map = new HashMap<>();
 
         map.put(Option.LOGIN.getValue(), new LoginCase());
@@ -29,23 +60,7 @@ public class Application {
         map.put(Option.RETURN_BOOK.getValue(), new ReturnBookCase());
         map.put(Option.MY_USER_INFO.getValue(), new UserInfoCase());
 
-        int menu;
-
-        application.getWelcomeInfo();
-        application.getMenu();
-
-        while ((menu = scanner.nextInt()) != Option.EXIT.getValue()) {
-
-            Base base = map.get(menu);
-
-            if (Objects.isNull(base)) {
-                System.out.println("Select a valid option!");
-            } else {
-                base.print(menu, scanner);
-            }
-
-            application.getMenu();
-        }
+        return map;
     }
 
     private void getWelcomeInfo() {

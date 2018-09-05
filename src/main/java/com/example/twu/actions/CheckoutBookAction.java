@@ -8,6 +8,7 @@ import java.util.Objects;
 import static com.example.twu.Application.dataList;
 
 public class CheckoutBookAction {
+
     public String checkoutBookById(int id) {
         Book book = dataList.getBookList().stream()
                 .filter(b -> b.getId() == id)

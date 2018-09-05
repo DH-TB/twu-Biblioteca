@@ -6,6 +6,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DataList {
+
+    private User loggedUser;
     private List<Book> bookList;
     private List<Movie> movieList;
     private List<User> userList;
@@ -20,7 +22,6 @@ public class DataList {
     }
 
 
-    private User loggedUser;
 
     public User getLoggedUser() {
         return loggedUser;

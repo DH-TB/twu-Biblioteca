@@ -7,6 +7,7 @@ import java.util.Objects;
 import static com.example.twu.Application.dataList;
 
 public class UserInfoAction {
+
     public String getMyUserInfo() {
         User user = dataList.getLoggedUser();
         if (Objects.isNull(user)) {
