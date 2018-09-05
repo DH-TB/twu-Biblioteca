@@ -7,7 +7,7 @@ import com.example.twu.entities.User;
 import java.util.Objects;
 import java.util.Scanner;
 
-public class CaseFour implements Base {
+public class CheckoutBookCase implements Base {
 
     @Override
     public void print(int input, Scanner scanner) {

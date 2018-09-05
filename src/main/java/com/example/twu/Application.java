@@ -24,22 +24,17 @@ public class Application {
         map.put(Option.LOGIN.getValue(), new LoginCase());
         map.put(Option.SHOW_ALL_BOOK.getValue(), new ShowBookListCase());
         map.put(Option.SHOW_ALL_MOVIE.getValue(), new ShowMovieListCase());
-        map.put(Option.CHECKOUT_BOOK.getValue(), new CaseFour());
-        map.put(Option.CHECKOUT_MOVIE.getValue(), new CaseFive());
-        map.put(Option.RETURN_BOOK.getValue(), new CaseSix());
-        map.put(Option.MY_USER_INFO.getValue(), new CaseSeven());
+        map.put(Option.CHECKOUT_BOOK.getValue(), new CheckoutBookCase());
+        map.put(Option.CHECKOUT_MOVIE.getValue(), new CheckoutMovieCase());
+        map.put(Option.RETURN_BOOK.getValue(), new ReturnBookCase());
+        map.put(Option.MY_USER_INFO.getValue(), new UserInfoCase());
 
-        int menu = 0;
+        int menu;
 
         application.getWelcomeInfo();
         application.getMenu();
 
-        while (menu != 8) {
-            try {
-                menu = scanner.nextInt();
-            } catch (InputMismatchException e) {
-                System.out.println("please choose legal number");
-            }
+        while ((menu = scanner.nextInt()) != Option.EXIT.getValue()) {
 
             Base base = map.get(menu);
 

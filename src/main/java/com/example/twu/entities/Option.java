@@ -7,7 +7,8 @@ public enum Option {
     CHECKOUT_BOOK(4),
     CHECKOUT_MOVIE(5),
     RETURN_BOOK(6),
-    MY_USER_INFO(7);
+    MY_USER_INFO(7),
+    EXIT(8);
 
     private int value;
 

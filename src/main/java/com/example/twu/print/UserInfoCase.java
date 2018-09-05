@@ -4,7 +4,7 @@ import com.example.twu.controllers.UserController;
 
 import java.util.Scanner;
 
-public class CaseSeven implements Base {
+public class UserInfoCase implements Base {
 
     @Override
     public void print(int input, Scanner scanner) {
