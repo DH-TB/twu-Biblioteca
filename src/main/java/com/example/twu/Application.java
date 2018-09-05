@@ -1,10 +1,12 @@
 package com.example.twu;
 
 import com.example.twu.entities.Menu;
+import com.example.twu.entities.Option;
 import com.example.twu.print.*;
 import com.example.twu.store.DataList;
 
 import java.util.HashMap;
+import java.util.InputMismatchException;
 import java.util.Objects;
 import java.util.Scanner;
 
@@ -18,20 +20,27 @@ public class Application {
         Scanner scanner = new Scanner(System.in);
 
         HashMap<Integer, Base> map = new HashMap<>();
-        map.put(1, new CaseOne());
-        map.put(2, new CaseTwo());
-        map.put(3, new CaseThree());
-        map.put(4, new CaseFour());
-        map.put(5, new CaseFive());
-        map.put(6, new CaseSix());
-        map.put(7, new CaseSeven());
 
-        int menu;
+        map.put(Option.LOGIN.getValue(), new LoginCase());
+        map.put(Option.SHOW_ALL_BOOK.getValue(), new ShowBookListCase());
+        map.put(Option.SHOW_ALL_MOVIE.getValue(), new ShowMovieListCase());
+        map.put(Option.CHECKOUT_BOOK.getValue(), new CaseFour());
+        map.put(Option.CHECKOUT_MOVIE.getValue(), new CaseFive());
+        map.put(Option.RETURN_BOOK.getValue(), new CaseSix());
+        map.put(Option.MY_USER_INFO.getValue(), new CaseSeven());
+
+        int menu = 0;
 
         application.getWelcomeInfo();
         application.getMenu();
 
-        while ((menu = scanner.nextInt()) != 8) {
+        while (menu != 8) {
+            try {
+                menu = scanner.nextInt();
+            } catch (InputMismatchException e) {
+                System.out.println("please choose legal number");
+            }
+
             Base base = map.get(menu);
 
             if (Objects.isNull(base)) {

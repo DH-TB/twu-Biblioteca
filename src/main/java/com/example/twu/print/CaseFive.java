@@ -14,8 +14,7 @@ public class CaseFive implements Base {
         User user = Application.dataList.getLoggedUser();
         if (Objects.isNull(user)) {
             System.out.println("please login first");
-        }
-        else {
+        } else {
             System.out.println("please input checkout movie id");
             System.out.println(new MovieController().checkoutMovieById(scanner.nextInt()));
         }

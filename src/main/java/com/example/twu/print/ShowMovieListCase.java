@@ -4,7 +4,7 @@ import com.example.twu.controllers.MovieController;
 
 import java.util.Scanner;
 
-public class CaseThree implements Base {
+public class ShowMovieListCase implements Base {
 
     @Override
     public void print(int input, Scanner scanner) {
